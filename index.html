@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trend Flare | Premium WordPress Development & Social Media Growth Agency</title>
+  <meta name="description" content="Trend Flare is a high-impact digital agency specializing in custom WordPress web development, speed optimization, and viral social media marketing that generates leads and brand authority.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#ff3366',
+              purple: '#7928ca',
+              cyan: '#00f2fe',
+              dark: '#080c14',
+              surface: '#0f1626',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-mesh text-slate-100 min-h-screen selection:bg-pink-500 selection:text-white">
+
+  <!-- Floating Glow Background Elements -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+  <div class="fixed bottom-20 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#ff3366] via-[#ff7a00] to-[#7928ca] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-pink-500/30 group-hover:scale-105 transition-transform">
+          <i class="fas fa-fire-flame-curved"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black font-heading tracking-tight text-white flex items-center gap-1">
+            TREND<span class="text-gradient">FLARE</span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Web &amp; Social Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="text-white font-semibold transition-colors flex items-center gap-1.5 border-b-2 border-[#ff3366] pb-1">
+          Home
+        </a>
+        <a href="about.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">
+          About Us
+        </a>
+        <a href="services.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">
+          Services
+        </a>
+        <a href="portfolio.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">
+          Portfolio
+        </a>
+        <a href="pricing.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">
+          Pricing
+        </a>
+        <a href="blog.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">
+          Insights
+        </a>
+        <a href="contact.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">
+          Contact
+        </a>
+      </div>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white text-sm font-semibold shadow-md">
+          <span>Start a Project</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 hover:text-white hover:bg-white/10 transition-colors focus:outline-none" aria-label="Toggle Navigation">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="mobile-menu" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-[#0d1322] border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold">
+            <i class="fas fa-fire-flame-curved"></i>
+          </div>
+          <span class="text-xl font-black font-heading tracking-tight text-white">TREND<span class="text-gradient">FLARE</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-4 mt-6 text-base font-medium">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl bg-white/10 text-white flex items-center justify-between">
+          <span>Home</span>
+          <i class="fas fa-chevron-right text-xs text-[#ff3366]"></i>
+        </a>
+        <a href="about.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white flex items-center justify-between">
+          <span>About Us</span>
+          <i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="services.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white flex items-center justify-between">
+          <span>Services</span>
+          <i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="portfolio.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white flex items-center justify-between">
+          <span>Portfolio</span>
+          <i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="pricing.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white flex items-center justify-between">
+          <span>Pricing</span>
+          <i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white flex items-center justify-between">
+          <span>Insights</span>
+          <i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="contact.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white flex items-center justify-between">
+          <span>Contact</span>
+          <i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-white/10">
+      <a href="contact.html" class="w-full py-3 rounded-xl btn-gradient text-white text-center font-bold block mb-4 shadow-lg shadow-pink-500/30">
+        Book Strategy Call
+      </a>
+      <div class="flex items-center justify-center gap-4 text-slate-400 text-lg">
+        <a href="https://instagram.com" target="_blank" class="hover:text-pink-400 transition-colors"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/94771234567" target="_blank" class="hover:text-green-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-up">
+          
+          <!-- Announcement Pill -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full badge-flare text-xs font-semibold backdrop-blur-md">
+            <span class="flex h-2 w-2 rounded-full bg-pink-500 animate-ping"></span>
+            <span>Premium Web Development &amp; Social Growth</span>
+            <i class="fas fa-sparkles text-pink-400"></i>
+          </div>
+
+          <!-- Main Catchy Title -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black font-heading leading-tight tracking-tight text-white">
+            Transform Your Brand with 
+            <span class="text-gradient">Viral Reach</span> &amp; 
+            <span class="text-gradient-purple">Lightning WordPress.</span>
+          </h1>
+
+          <!-- Subtitle / Value proposition -->
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            At <strong class="text-white font-semibold">Trend Flare</strong>, we engineer blazing-fast, custom WordPress platforms and run high-converting social media marketing campaigns that dominate feeds and generate consistent revenue.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="contact.html" class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gradient text-white font-bold text-base flex items-center justify-center gap-3 shadow-xl group">
+              <span>Claim Free Consultation</span>
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="portfolio.html" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-base flex items-center justify-center gap-2 transition-all">
+              <i class="fas fa-play-circle text-pink-400"></i>
+              <span>View Client Case Studies</span>
+            </a>
+          </div>
+
+          <!-- Social Proof / Metrics Row -->
+          <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold font-heading text-white">120+</div>
+              <div class="text-xs text-slate-400 uppercase tracking-wider font-medium mt-0.5">Projects Delivered</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold font-heading text-pink-400">99.8%</div>
+              <div class="text-xs text-slate-400 uppercase tracking-wider font-medium mt-0.5">PageSpeed Score</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold font-heading text-purple-400">4.9/5</div>
+              <div class="text-xs text-slate-400 uppercase tracking-wider font-medium mt-0.5">Client Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Cards Stack -->
+        <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-delay="150">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Main Featured Image Card (Laptop / Modern Tech) -->
+            <div class="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#0f1628]/80 backdrop-blur-xl group">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Trend Flare Dashboard and Web Showcase" class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/30 to-transparent"></div>
+              
+              <!-- Bottom Overlaid Info inside card -->
+              <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <div>
+                  <div class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Live Performance</div>
+                  <div class="text-sm font-bold text-white">Custom WooCommerce &amp; Ad Funnel</div>
+                </div>
+                <div class="flex items-center gap-1.5 text-emerald-400 text-xs font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                  <i class="fas fa-arrow-trend-up"></i>
+                  <span>+340% ROI</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 1: WordPress Speed -->
+            <div class="absolute -top-6 -left-6 sm:-left-10 p-4 rounded-2xl glow-card shadow-2xl border border-white/15 animate-float hidden sm:flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl">
+                <i class="fab fa-wordpress"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 font-medium">Core Web Vitals</div>
+                <div class="text-sm font-extrabold text-white flex items-center gap-1">
+                  <span>Grade A+ (0.4s load)</span>
+                  <i class="fas fa-bolt text-yellow-400 text-xs"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2: Social Media Reach -->
+            <div class="absolute -bottom-6 -right-6 sm:-right-8 p-4 rounded-2xl glow-card shadow-2xl border border-white/15 animate-float-delayed flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-pink-500 to-purple-500 flex items-center justify-center text-white text-xl shadow-lg shadow-pink-500/20">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 font-medium">Viral Social Reach</div>
+                <div class="text-sm font-extrabold text-white">
+                  1.2M+ Views/Month
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST LOGOS TICKER -->
+  <section class="py-10 border-y border-white/5 bg-black/20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-4 text-center">
+      <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">
+        Technologies &amp; Platforms We Leverage For Maximum Impact
+      </p>
+    </div>
+    <div class="overflow-hidden relative w-full">
+      <div class="marquee-track flex items-center gap-14 text-slate-400 text-2xl font-bold opacity-70">
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-wordpress text-3xl text-blue-400"></i> WordPress</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-elementor text-3xl text-red-400"></i> Elementor Pro</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fas fa-cart-shopping text-3xl text-purple-400"></i> WooCommerce</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-meta text-3xl text-blue-500"></i> Meta Ads</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-instagram text-3xl text-pink-500"></i> Instagram</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-tiktok text-3xl text-white"></i> TikTok Ads</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-google text-3xl text-yellow-400"></i> Google SEO</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-stripe text-3xl text-indigo-400"></i> Stripe</span>
+        <!-- Duplicate for infinite seamless scroll -->
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-wordpress text-3xl text-blue-400"></i> WordPress</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-elementor text-3xl text-red-400"></i> Elementor Pro</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fas fa-cart-shopping text-3xl text-purple-400"></i> WooCommerce</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-meta text-3xl text-blue-500"></i> Meta Ads</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-instagram text-3xl text-pink-500"></i> Instagram</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-tiktok text-3xl text-white"></i> TikTok Ads</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-google text-3xl text-yellow-400"></i> Google SEO</span>
+        <span class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-stripe text-3xl text-indigo-400"></i> Stripe</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAL CORE SERVICES OVERVIEW -->
+  <section class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-flare text-xs font-bold mb-4">
+          <i class="fas fa-bolt"></i> What We Excel At
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white">
+          Two Unstoppable Engines for <span class="text-gradient">Exponential Growth</span>
+        </h2>
+        <p class="text-slate-300 mt-4 text-base sm:text-lg">
+          We don't build generic websites or post random quotes. We architect tailor-made digital assets and creative campaigns with clear, measurable conversion goals.
+        </p>
+      </div>
+
+      <!-- Services 2 Major Pillars Grid -->
+      <div class="grid lg:grid-cols-2 gap-8">
+        
+        <!-- Service Pillar 1: WordPress Web Development -->
+        <div class="glow-card rounded-3xl p-8 sm:p-10 relative overflow-hidden group" data-aos="fade-right">
+          <!-- Ambient Glow Corner -->
+          <div class="absolute -top-12 -right-12 w-44 h-44 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/25 transition-all"></div>
+          
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-3xl mb-8 shadow-lg shadow-blue-500/25">
+            <i class="fab fa-wordpress-simple"></i>
+          </div>
+
+          <span class="text-xs uppercase font-extrabold tracking-wider text-blue-400">Core Specialty #01</span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-2 mb-4">
+            Custom WordPress Web Development
+          </h3>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+            From bespoke corporate portals and fast Elementor/Gutenberg builds to multi-vendor WooCommerce stores, we build secure, ultra-responsive websites with near-instant loading speeds.
+          </p>
+
+          <!-- Key Features Checklist -->
+          <ul class="space-y-3.5 mb-8 text-sm text-slate-300">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>100% Mobile &amp; Tablet Responsive UX/UI</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>WooCommerce Store Setup, Payment Gateways &amp; Invoicing</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>Google PageSpeed 90+ Optimization &amp; Caching Setup</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>Enterprise WordPress Security &amp; Monthly Maintenance</span>
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-between pt-6 border-t border-white/10">
+            <a href="services.html#wordpress" class="text-blue-400 hover:text-blue-300 font-bold text-sm flex items-center gap-2 group-hover:translate-x-1 transition-all">
+              <span>View WordPress Solutions</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <span class="text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/10 font-mono">From $249</span>
+          </div>
+        </div>
+
+        <!-- Service Pillar 2: Social Media Management -->
+        <div class="glow-card rounded-3xl p-8 sm:p-10 relative overflow-hidden group" data-aos="fade-left">
+          <!-- Ambient Glow Corner -->
+          <div class="absolute -top-12 -right-12 w-44 h-44 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/25 transition-all"></div>
+          
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white text-3xl mb-8 shadow-lg shadow-pink-500/25">
+            <i class="fas fa-hashtag"></i>
+          </div>
+
+          <span class="text-xs uppercase font-extrabold tracking-wider text-pink-400">Core Specialty #02</span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-2 mb-4">
+            High-Impact Social Media Management
+          </h3>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+            We turn stagnant social media feeds into vibrant customer magnets. Viral short-form video strategies, aesthetic carousel graphics, compelling copy, and laser-targeted ad funnels.
+          </p>
+
+          <!-- Key Features Checklist -->
+          <ul class="space-y-3.5 mb-8 text-sm text-slate-300">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>Monthly Content Calendar &amp; Custom Visual Assets</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>High-Retention TikToks, Reels &amp; YouTube Shorts Editing</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>Meta (Facebook &amp; Instagram) Paid Ads Management</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center text-xs"><i class="fas fa-check"></i></span>
+              <span>Daily Community Engagement &amp; In-depth Growth Analytics</span>
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-between pt-6 border-t border-white/10">
+            <a href="services.html#social-media" class="text-pink-400 hover:text-pink-300 font-bold text-sm flex items-center gap-2 group-hover:translate-x-1 transition-all">
+              <span>View Social Media Plans</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <span class="text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/10 font-mono">From $199/mo</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE TREND FLARE / ADVANTAGES -->
+  <section class="py-20 bg-slate-900/40 border-y border-white/5 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+          Why Brands Choose <span class="text-gradient">Trend Flare</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-3">
+          We combine cutting-edge aesthetic standards with data-backed conversion engineering.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="glow-card rounded-2xl p-6 text-center hover:border-pink-500/40 transition-all" data-aos="fade-up" data-aos-delay="50">
+          <div class="w-14 h-14 rounded-2xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-2xl mx-auto mb-4 border border-pink-500/20">
+            <i class="fas fa-gauge-high"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Blazing Speed</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Every site we build is optimized for sub-second load times, passing all Google Core Web Vitals with flying colors.
+          </p>
+        </div>
+
+        <div class="glow-card rounded-2xl p-6 text-center hover:border-purple-500/40 transition-all" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mx-auto mb-4 border border-purple-500/20">
+            <i class="fas fa-wand-magic-sparkles"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Trendsetting Aesthetics</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Designs that look like they belong in 2026. Striking typography, clean layouts, and viral-ready visual assets.
+          </p>
+        </div>
+
+        <div class="glow-card rounded-2xl p-6 text-center hover:border-cyan-500/40 transition-all" data-aos="fade-up" data-aos-delay="150">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mx-auto mb-4 border border-cyan-500/20">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">ROI-Driven Strategy</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            We don't focus on vanity metrics. We construct sales funnels that turn visitors into eager paying customers.
+          </p>
+        </div>
+
+        <div class="glow-card rounded-2xl p-6 text-center hover:border-emerald-500/40 transition-all" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mx-auto mb-4 border border-emerald-500/20">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Dedicated Partnership</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Direct communication via WhatsApp &amp; Slack. Transparent sprint updates, no hidden fees, and lifetime support.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SHOWCASE PREVIEW -->
+  <section class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6" data-aos="fade-up">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-flare text-xs font-bold mb-3">
+            <i class="fas fa-folder-open"></i> Proven Case Studies
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white">
+            Recent Work That <span class="text-gradient">Generated Results</span>
+          </h2>
+        </div>
+        <a href="portfolio.html" class="inline-flex items-center gap-2 text-sm font-bold text-pink-400 hover:text-pink-300 transition-colors">
+          <span>Explore All 20+ Case Studies</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Grid of Projects -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1: WooCommerce Luxury Brand -->
+        <div class="glow-card rounded-3xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="LuxeCart E-Commerce" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1626] via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-white/10">
+              WordPress &amp; WooCommerce
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">
+              Velora Luxury Apparel Store
+            </h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Custom WooCommerce platform built for international sales with automated currency conversion, fast checkout, and 98 PageSpeed score.
+            </p>
+            <div class="flex items-center justify-between pt-5 mt-5 border-t border-white/10">
+              <div class="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+                <i class="fas fa-arrow-up-right-dots"></i> +280% Sales Growth
+              </div>
+              <a href="portfolio.html" class="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1">
+                View Case Study <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Viral Social Campaign -->
+        <div class="glow-card rounded-3xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=700&q=80" alt="Social Media Growth Strategy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1626] via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-pink-400 text-xs font-bold px-3 py-1 rounded-full border border-white/10">
+              Social Media &amp; Reels
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">
+              Aura Wellness 90-Day Viral Surge
+            </h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Complete organic Reels &amp; TikTok content engine paired with micro-influencer outreach that scaled audience from 1.2k to 85k followers.
+            </p>
+            <div class="flex items-center justify-between pt-5 mt-5 border-t border-white/10">
+              <div class="text-xs font-semibold text-pink-400 flex items-center gap-1.5">
+                <i class="fas fa-fire"></i> 3.4M Video Views
+              </div>
+              <a href="portfolio.html" class="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1">
+                View Case Study <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Corporate Tech Website -->
+        <div class="glow-card rounded-3xl overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=700&q=80" alt="SaaS Web Development" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1626] via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-white/10">
+              WordPress &amp; Lead Funnel
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">
+              Apex FinTech Corporate Portal
+            </h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              High-security WordPress corporate portal with multi-language capabilities, interactive calculators, and seamless CRM webhook integration.
+            </p>
+            <div class="flex items-center justify-between pt-5 mt-5 border-t border-white/10">
+              <div class="text-xs font-semibold text-cyan-400 flex items-center gap-1.5">
+                <i class="fas fa-check-circle"></i> +410 Qualified Leads
+              </div>
+              <a href="portfolio.html" class="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1">
+                View Case Study <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="py-20 bg-slate-900/50 border-y border-white/5 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge-flare text-xs font-bold mb-3">
+          <i class="fas fa-quote-left"></i> Client Endorsements
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+          What Business Owners Say About <span class="text-gradient">Trend Flare</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="glow-card rounded-2xl p-8 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed italic">
+              "Trend Flare completely transformed our slow old WordPress store. In less than 2 weeks, they gave us a modern look and reduced our load time from 5.8 seconds to under 1 second. Sales jumped by 40% immediately!"
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-6 mt-6 border-t border-white/10">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Samantha R." class="w-12 h-12 rounded-full object-cover border-2 border-pink-500">
+            <div>
+              <h4 class="text-sm font-bold text-white">Samantha Roberts</h4>
+              <p class="text-xs text-slate-400">Founder, GlowAura Beauty (UK)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glow-card rounded-2xl p-8 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed italic">
+              "Their social media management strategy is pure genius. They planned and produced 30 viral reels that brought over 1.8M impressions for our real estate business. We closed 4 high-ticket deals directly through Instagram DMs."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-6 mt-6 border-t border-white/10">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Dilan Perera" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500">
+            <div>
+              <h4 class="text-sm font-bold text-white">Dilan Perera</h4>
+              <p class="text-xs text-slate-400">Director, Horizon Living</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glow-card rounded-2xl p-8 relative flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed italic">
+              "Reliable, communicative, and creative. They take care of both our WordPress web maintenance and daily Facebook/Instagram marketing. I never have to worry about our online branding anymore."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-6 mt-6 border-t border-white/10">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Michael Chang" class="w-12 h-12 rounded-full object-cover border-2 border-cyan-500">
+            <div>
+              <h4 class="text-sm font-bold text-white">Michael Chang</h4>
+              <p class="text-xs text-slate-400">CEO, NextGen Cloud Labs</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER SECTION -->
+  <section class="py-20 relative z-10">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="rounded-3xl p-10 md:p-16 bg-gradient-to-r from-[#ff3366]/20 via-[#7928ca]/25 to-[#00f2fe]/20 border border-white/15 backdrop-blur-2xl text-center relative overflow-hidden" data-aos="zoom-in">
+        
+        <div class="max-w-3xl mx-auto space-y-6">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-wider border border-white/15">
+            Let's Ignite Your Business
+          </span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-white">
+            Ready to Outrank &amp; Outshine Your Competitors?
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg">
+            Schedule a free 30-minute consultation call with Trend Flare. We'll audit your current website &amp; social profiles and show you the exact roadmap to double your growth.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <a href="contact.html" class="w-full sm:w-auto px-9 py-4 rounded-xl btn-gradient text-white font-bold text-base shadow-xl flex items-center justify-center gap-2">
+              <span>Book Strategy Session</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://wa.me/94771234567?text=Hi%20Trend%20Flare,%20I%20am%20interested%20in%20your%20services" target="_blank" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/40 border border-emerald-500/40 text-emerald-300 font-bold text-base flex items-center justify-center gap-2 transition-colors">
+              <i class="fab fa-whatsapp text-lg"></i>
+              <span>Chat Directly on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-16 pb-12 bg-[#060a12] border-t border-white/10 relative z-10 text-sm">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold text-xl">
+              <i class="fas fa-fire-flame-curved"></i>
+            </div>
+            <span class="text-2xl font-black font-heading text-white">TREND<span class="text-gradient">FLARE</span></span>
+          </a>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Trend Flare is a premier boutique agency specializing in high-performance WordPress web development, speed optimization, and viral social media marketing for forward-thinking brands worldwide.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-pink-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-cyan-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://tiktok.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-slate-700 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/94771234567" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-emerald-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Links 1: Navigation -->
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Navigation</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="index.html" class="hover:text-pink-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-pink-400 transition-colors">About Trend Flare</a></li>
+            <li><a href="services.html" class="hover:text-pink-400 transition-colors">Our Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-pink-400 transition-colors">Case Studies &amp; Work</a></li>
+            <li><a href="pricing.html" class="hover:text-pink-400 transition-colors">Pricing &amp; Packages</a></li>
+            <li><a href="blog.html" class="hover:text-pink-400 transition-colors">Blog &amp; Insights</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 2: Services -->
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Our Services</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="services.html#wordpress" class="hover:text-blue-400 transition-colors">Custom WordPress Design</a></li>
+            <li><a href="services.html#woocommerce" class="hover:text-blue-400 transition-colors">WooCommerce E-Commerce</a></li>
+            <li><a href="services.html#speed" class="hover:text-blue-400 transition-colors">PageSpeed Optimization</a></li>
+            <li><a href="services.html#social-media" class="hover:text-pink-400 transition-colors">Social Media Management</a></li>
+            <li><a href="services.html#reels" class="hover:text-pink-400 transition-colors">Reels &amp; TikTok Strategy</a></li>
+            <li><a href="services.html#ads" class="hover:text-pink-400 transition-colors">Meta Ads &amp; Paid Growth</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact details -->
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Get In Touch</h4>
+          <ul class="space-y-3 text-xs text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-envelope text-pink-400 mt-0.5"></i>
+              <a href="mailto:hello@trendflare.agency" class="hover:text-white transition-colors">hello@trendflare.agency</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fab fa-whatsapp text-emerald-400 mt-0.5"></i>
+              <a href="https://wa.me/94771234567" target="_blank" class="hover:text-white transition-colors">+94 77 123 4567</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-location-dot text-purple-400 mt-0.5"></i>
+              <span>Colombo, Sri Lanka &amp; Worldwide Remote</span>
+            </li>
+            <li class="pt-2">
+              <a href="contact.html" class="inline-block px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/10 transition-colors">
+                Book 1-on-1 Call <i class="fas fa-calendar-check ml-1 text-pink-400"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div>
+          &copy; <span class="current-year">2026</span> <span class="text-white font-semibold">Trend Flare</span>. All rights reserved. Built with pride for ambitious businesses.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/94771234567?text=Hello%20Trend%20Flare,%20I'd%20like%20to%20inquire%20about%20your%20services" target="_blank" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl shadow-emerald-500/30 hover:scale-110 transition-transform group" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="absolute left-16 bg-slate-900 border border-emerald-500/30 text-white text-xs px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+      Chat with our team
+    </span>
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center text-base shadow-xl backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

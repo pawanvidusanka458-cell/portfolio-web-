@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Trend Flare - The Story Behind Our Agency</title>
+  <meta name="description" content="Discover Trend Flare's journey, mission, and the passionate team powering high-performance WordPress web development and viral social media marketing.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#ff3366',
+              purple: '#7928ca',
+              cyan: '#00f2fe',
+              dark: '#080c14',
+              surface: '#0f1626',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-mesh text-slate-100 min-h-screen selection:bg-pink-500 selection:text-white">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+  <div class="fixed bottom-20 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 header-scrolled">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#ff3366] via-[#ff7a00] to-[#7928ca] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-pink-500/30 group-hover:scale-105 transition-transform">
+          <i class="fas fa-fire-flame-curved"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black font-heading tracking-tight text-white flex items-center gap-1">
+            TREND<span class="text-gradient">FLARE</span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Web &amp; Social Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Home</a>
+        <a href="about.html" class="text-white font-semibold transition-colors flex items-center gap-1.5 border-b-2 border-[#ff3366] pb-1">About Us</a>
+        <a href="services.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Services</a>
+        <a href="portfolio.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Portfolio</a>
+        <a href="pricing.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Pricing</a>
+        <a href="blog.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Insights</a>
+        <a href="contact.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Contact</a>
+      </div>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white text-sm font-semibold shadow-md">
+          <span>Start a Project</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 hover:text-white" aria-label="Toggle Navigation">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="mobile-menu" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-[#0d1322] border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold">
+            <i class="fas fa-fire-flame-curved"></i>
+          </div>
+          <span class="text-xl font-black font-heading tracking-tight text-white">TREND<span class="text-gradient">FLARE</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-4 mt-6 text-base font-medium">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Home</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="about.html" class="px-4 py-2.5 rounded-xl bg-white/10 text-white flex items-center justify-between">
+          <span>About Us</span><i class="fas fa-chevron-right text-xs text-[#ff3366]"></i>
+        </a>
+        <a href="services.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Services</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="portfolio.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Portfolio</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="pricing.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Pricing</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Insights</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="contact.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Contact</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/10">
+      <a href="contact.html" class="w-full py-3 rounded-xl btn-gradient text-white text-center font-bold block mb-4">Book Strategy Call</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="pt-36 pb-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 text-center" data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge-flare text-xs font-bold mb-4">
+        <i class="fas fa-compass"></i> Our DNA &amp; Philosophy
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-white max-w-4xl mx-auto leading-tight">
+        We Fuel Brands with <span class="text-gradient">Relentless Creativity</span> &amp; Precision Engineering.
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed">
+        Born out of a desire to eliminate bloated, slow websites and lifeless social feeds, Trend Flare is the digital growth partner built for businesses that demand to stand out.
+      </p>
+    </div>
+  </section>
+
+  <!-- STORY / MISSION SECTION -->
+  <section class="py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Image Grid -->
+        <div class="relative" data-aos="fade-right">
+          <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Trend Flare Team Collaborating" class="w-full h-[450px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-transparent to-transparent"></div>
+          </div>
+          <!-- Overlaid stat badge -->
+          <div class="absolute -bottom-6 -right-6 sm:right-6 glow-card p-5 rounded-2xl border border-white/20 shadow-2xl max-w-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-2xl font-bold">
+                <i class="fas fa-award"></i>
+              </div>
+              <div>
+                <div class="text-xl font-black font-heading text-white">5+ Years</div>
+                <div class="text-xs text-slate-400">Industry Excellence</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Text -->
+        <div class="space-y-6" data-aos="fade-left">
+          <span class="text-xs uppercase font-extrabold tracking-wider text-pink-400">The Trend Flare Origin</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            Bridging the Gap Between Code and Culture.
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Most businesses face a classic dilemma: Web developers who know how to code but have zero sense of modern aesthetics, or social media managers who post content that looks cute but drives zero actual revenue.
+          </p>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <strong class="text-white">Trend Flare was created to fix that exact disconnect.</strong> We merge robust, lightning-fast WordPress architectures with culturally resonant, viral social media storytelling. The result? A digital ecosystem where your website converts like clockwork, and your social channels keep fueling your pipeline.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+              <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">
+                <i class="fas fa-bullseye text-pink-400"></i> Our Mission
+              </h4>
+              <p class="text-xs text-slate-400">To equip ambitious entrepreneurs with the digital infrastructure to lead their niche.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+              <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2">
+                <i class="fas fa-eye text-purple-400"></i> Our Vision
+              </h4>
+              <p class="text-xs text-slate-400">To be the most trusted global agency known for measurable ROI and jaw-dropping digital craft.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-STEP METHODOLOGY -->
+  <section class="py-24 bg-slate-900/40 border-y border-white/5 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-flare text-xs font-bold mb-3">
+          <i class="fas fa-sitemap"></i> How We Deliver Magic
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+          Our 4-Step <span class="text-gradient">Growth Engine</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-2">
+          From first brainstorm to launch day and beyond, here is our proven roadmap.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="glow-card rounded-2xl p-6 relative group" data-aos="fade-up" data-aos-delay="100">
+          <span class="text-5xl font-black font-heading text-white/10 absolute top-4 right-4 group-hover:text-pink-500/20 transition-colors">01</span>
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-4 border border-pink-500/20">
+            <i class="fas fa-magnifying-glass-chart"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Deep Discovery</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            We analyze your competitors, audience demographics, search intent, and existing tech stack to formulate a battle-tested strategy.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glow-card rounded-2xl p-6 relative group" data-aos="fade-up" data-aos-delay="200">
+          <span class="text-5xl font-black font-heading text-white/10 absolute top-4 right-4 group-hover:text-purple-500/20 transition-colors">02</span>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4 border border-purple-500/20">
+            <i class="fas fa-bezier-curve"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Design &amp; Storytelling</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Wireframes, interactive UI mockups, and hook-heavy social media content plans designed for maximum user engagement and trust.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glow-card rounded-2xl p-6 relative group" data-aos="fade-up" data-aos-delay="300">
+          <span class="text-5xl font-black font-heading text-white/10 absolute top-4 right-4 group-hover:text-cyan-500/20 transition-colors">03</span>
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4 border border-cyan-500/20">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Clean Development</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            WordPress development with clean semantics, responsive CSS, mobile optimization, security safeguards, and sub-second caching.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glow-card rounded-2xl p-6 relative group" data-aos="fade-up" data-aos-delay="400">
+          <span class="text-5xl font-black font-heading text-white/10 absolute top-4 right-4 group-hover:text-emerald-500/20 transition-colors">04</span>
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4 border border-emerald-500/20">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Launch &amp; Viral Surge</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Site launch without downtime, paired with explosive social media push, continuous conversion rate optimization, and monthly reports.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+          Our Uncompromising <span class="text-gradient">Principles</span>
+        </h2>
+        <p class="text-slate-300 text-sm mt-3">What guides every line of code we write and every piece of content we produce.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="glow-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/15 text-pink-400 flex items-center justify-center text-xl mb-4">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Zero Bloatware</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            We avoid heavy, laggy themes and useless plugins. Our WordPress sites are lightweight, clean, and built for speed and security.
+          </p>
+        </div>
+
+        <div class="glow-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center text-xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Obsessed with Outcomes</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Pretty visuals are meaningless if they don't bring in inquiries or customers. Everything we build is tied directly to your business bottom line.
+          </p>
+        </div>
+
+        <div class="glow-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-xl mb-4">
+            <i class="fas fa-handshake-angle"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Radical Transparency</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            No technical jargon, no mysterious invoices. Clear sprint updates, realistic deliverables, and straightforward advice always.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="py-20 relative z-10">
+    <div class="max-w-6xl mx-auto px-6 md:px-12">
+      <div class="rounded-3xl p-10 md:p-14 bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-blue-600/20 border border-white/15 backdrop-blur-2xl text-center" data-aos="zoom-in">
+        <h2 class="text-3xl sm:text-4xl font-black font-heading text-white mb-4">
+          Want to Know How We Can Elevate Your Brand?
+        </h2>
+        <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base mb-8">
+          Let’s discuss your current challenges and draft a tailored roadmap for your WordPress site or social media presence.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="contact.html" class="px-8 py-4 rounded-xl btn-gradient text-white font-bold text-sm shadow-xl">
+            Book Free Strategy Call
+          </a>
+          <a href="portfolio.html" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-colors">
+            See Our Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-16 pb-12 bg-[#060a12] border-t border-white/10 relative z-10 text-sm">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold text-xl">
+              <i class="fas fa-fire-flame-curved"></i>
+            </div>
+            <span class="text-2xl font-black font-heading text-white">TREND<span class="text-gradient">FLARE</span></span>
+          </a>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Trend Flare is a premier boutique agency specializing in high-performance WordPress web development, speed optimization, and viral social media marketing for forward-thinking brands worldwide.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-pink-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-cyan-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/94771234567" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-emerald-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Navigation</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="index.html" class="hover:text-pink-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-pink-400 transition-colors">About Trend Flare</a></li>
+            <li><a href="services.html" class="hover:text-pink-400 transition-colors">Our Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-pink-400 transition-colors">Case Studies &amp; Work</a></li>
+            <li><a href="pricing.html" class="hover:text-pink-400 transition-colors">Pricing &amp; Packages</a></li>
+            <li><a href="blog.html" class="hover:text-pink-400 transition-colors">Blog &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Our Services</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="services.html#wordpress" class="hover:text-blue-400 transition-colors">Custom WordPress Design</a></li>
+            <li><a href="services.html#woocommerce" class="hover:text-blue-400 transition-colors">WooCommerce E-Commerce</a></li>
+            <li><a href="services.html#speed" class="hover:text-blue-400 transition-colors">PageSpeed Optimization</a></li>
+            <li><a href="services.html#social-media" class="hover:text-pink-400 transition-colors">Social Media Management</a></li>
+            <li><a href="services.html#reels" class="hover:text-pink-400 transition-colors">Reels &amp; TikTok Strategy</a></li>
+            <li><a href="services.html#ads" class="hover:text-pink-400 transition-colors">Meta Ads &amp; Paid Growth</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Get In Touch</h4>
+          <ul class="space-y-3 text-xs text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-envelope text-pink-400 mt-0.5"></i>
+              <a href="mailto:hello@trendflare.agency" class="hover:text-white transition-colors">hello@trendflare.agency</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fab fa-whatsapp text-emerald-400 mt-0.5"></i>
+              <a href="https://wa.me/94771234567" target="_blank" class="hover:text-white transition-colors">+94 77 123 4567</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-location-dot text-purple-400 mt-0.5"></i>
+              <span>Colombo, Sri Lanka &amp; Worldwide Remote</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div>
+          &copy; <span class="current-year">2026</span> <span class="text-white font-semibold">Trend Flare</span>. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/94771234567?text=Hello%20Trend%20Flare,%20I'd%20like%20to%20learn%20more%20about%20your%20agency" target="_blank" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl shadow-emerald-500/30 hover:scale-110 transition-transform" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center text-base shadow-xl backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

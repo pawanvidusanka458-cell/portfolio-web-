@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Trend Flare - Start Your Project Today</title>
+  <meta name="description" content="Get in touch with Trend Flare for high-converting WordPress development and viral social media marketing. Fast response within 24 hours.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#ff3366',
+              purple: '#7928ca',
+              cyan: '#00f2fe',
+              dark: '#080c14',
+              surface: '#0f1626',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-mesh text-slate-100 min-h-screen selection:bg-pink-500 selection:text-white">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+  <div class="fixed bottom-20 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 header-scrolled">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#ff3366] via-[#ff7a00] to-[#7928ca] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-pink-500/30 group-hover:scale-105 transition-transform">
+          <i class="fas fa-fire-flame-curved"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black font-heading tracking-tight text-white flex items-center gap-1">
+            TREND<span class="text-gradient">FLARE</span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Web &amp; Social Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Home</a>
+        <a href="about.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">About Us</a>
+        <a href="services.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Services</a>
+        <a href="portfolio.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Portfolio</a>
+        <a href="pricing.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Pricing</a>
+        <a href="blog.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Insights</a>
+        <a href="contact.html" class="text-white font-semibold transition-colors flex items-center gap-1.5 border-b-2 border-[#ff3366] pb-1">Contact</a>
+      </div>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="https://wa.me/94771234567" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/40 text-sm font-semibold shadow-md transition-all">
+          <i class="fab fa-whatsapp text-base"></i>
+          <span>WhatsApp Chat</span>
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 hover:text-white" aria-label="Toggle Navigation">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="mobile-menu" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-[#0d1322] border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold">
+            <i class="fas fa-fire-flame-curved"></i>
+          </div>
+          <span class="text-xl font-black font-heading tracking-tight text-white">TREND<span class="text-gradient">FLARE</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-4 mt-6 text-base font-medium">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Home</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="about.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>About Us</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="services.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Services</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="portfolio.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Portfolio</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="pricing.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Pricing</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Insights</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="contact.html" class="px-4 py-2.5 rounded-xl bg-white/10 text-white flex items-center justify-between">
+          <span>Contact</span><i class="fas fa-chevron-right text-xs text-[#ff3366]"></i>
+        </a>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/10">
+      <a href="https://wa.me/94771234567" target="_blank" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-center font-bold block mb-4">Chat on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-12 relative z-10 text-center">
+    <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge-flare text-xs font-bold mb-4">
+        <i class="fas fa-paper-plane"></i> Let's Create Greatness
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-white">
+        Start Your Project with <span class="text-gradient">Trend Flare</span>
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+        Tell us about your brand goals. Whether you need a lightning-fast WordPress redesign or an organic social growth strategy, we are ready to ignite your digital footprint.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM & DETAILS SECTION -->
+  <section class="py-10 pb-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid lg:grid-cols-12 gap-12">
+        
+        <!-- Left: Contact Form -->
+        <div class="lg:col-span-7 glow-card rounded-3xl p-8 sm:p-10 border border-white/15" data-aos="fade-right">
+          <h2 class="text-2xl font-black font-heading text-white mb-2">Send Us a Direct Inquiry</h2>
+          <p class="text-xs text-slate-400 mb-8">Fill in your details below and we will get back to you with a personalized proposal within 24 hours.</p>
+
+          <form id="contact-form" class="space-y-5">
+            
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="form-name" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Your Name *</label>
+                <input type="text" id="form-name" required placeholder="e.g. Alex Fernando" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors">
+              </div>
+              <div>
+                <label for="form-email" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Email Address *</label>
+                <input type="email" id="form-email" required placeholder="e.g. alex@company.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="form-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">WhatsApp / Phone Number</label>
+                <input type="tel" id="form-phone" placeholder="+94 77 000 0000" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors">
+              </div>
+              <div>
+                <label for="form-service" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Service Needed *</label>
+                <select id="form-service" required class="w-full px-4 py-3 rounded-xl bg-[#0d1322] border border-white/10 text-white text-sm focus:outline-none focus:border-pink-500 transition-colors">
+                  <option value="" disabled selected>Select a Service</option>
+                  <option value="Custom WordPress Development">Custom WordPress Website</option>
+                  <option value="WooCommerce E-Commerce Store">WooCommerce E-Commerce Store</option>
+                  <option value="PageSpeed Optimization">WordPress PageSpeed Optimization</option>
+                  <option value="Social Media Management">Social Media Management (Monthly)</option>
+                  <option value="Reels and TikTok Video Strategy">Reels &amp; Viral Short-Form Videos</option>
+                  <option value="Full Digital Growth Bundle">Full Bundle (Web + Social Growth)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="form-budget" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Estimated Budget</label>
+              <select id="form-budget" class="w-full px-4 py-3 rounded-xl bg-[#0d1322] border border-white/10 text-white text-sm focus:outline-none focus:border-pink-500 transition-colors">
+                <option value="Under $500">Under $500 (Starter)</option>
+                <option value="$500 - $1,500" selected>$500 - $1,500 (Growth)</option>
+                <option value="$1,500 - $3,000">$1,500 - $3,000 (Scale)</option>
+                <option value="$3,000+">$3,000+ (Enterprise)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="form-message" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Project Brief / Tell Us About Your Goals *</label>
+              <textarea id="form-message" required rows="4" placeholder="Briefly describe your business, what you're looking to achieve, and any website references you like..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-pink-500 transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl btn-gradient text-white font-bold text-sm uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 group">
+              <span>Send Project Inquiry</span>
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </button>
+
+            <p class="text-[11px] text-center text-slate-400 mt-2">
+              <i class="fas fa-lock mr-1 text-slate-400"></i> Your information is kept strictly confidential. No spam, ever.
+            </p>
+          </form>
+        </div>
+
+        <!-- Right: Contact Cards & Quick Direct Connect -->
+        <div class="lg:col-span-5 space-y-6" data-aos="fade-left">
+          
+          <!-- WhatsApp Fast Connect Box -->
+          <div class="rounded-3xl p-8 bg-gradient-to-br from-emerald-950/60 to-emerald-900/30 border border-emerald-500/30 backdrop-blur-xl relative overflow-hidden group">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-4 border border-emerald-500/30">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3 class="text-xl font-black font-heading text-white">Prefer WhatsApp?</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed mb-6">
+              Skip the email form and message our agency team directly on WhatsApp for instantaneous project discussions and quick pricing quotes.
+            </p>
+            <a href="https://wa.me/94771234567?text=Hi%20Trend%20Flare,%20I'd%20like%20to%20discuss%20a%20project%20for%20my%20business" target="_blank" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition-all">
+              <span>Open WhatsApp Chat</span>
+              <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Email & Location Cards -->
+          <div class="glow-card rounded-3xl p-8 space-y-6 border border-white/10">
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-lg shrink-0 border border-pink-500/20">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Official Email</h4>
+                <a href="mailto:hello@trendflare.agency" class="text-sm font-bold text-white hover:text-pink-400 transition-colors">hello@trendflare.agency</a>
+                <p class="text-[11px] text-slate-400 mt-0.5">Average reply time: &lt; 2 hours</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg shrink-0 border border-purple-500/20">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Headquarters &amp; Remote Hub</h4>
+                <p class="text-sm font-bold text-white">Colombo, Sri Lanka</p>
+                <p class="text-[11px] text-slate-400 mt-0.5">Serving clients worldwide (US, UK, UAE, Australia, Sri Lanka)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg shrink-0 border border-cyan-500/20">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Working Hours</h4>
+                <p class="text-sm font-bold text-white">Monday - Saturday (9:00 AM - 8:00 PM IST)</p>
+                <p class="text-[11px] text-slate-400 mt-0.5">24/7 Monitoring for emergency WordPress maintenance clients</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Social Links Grid -->
+          <div class="glow-card rounded-3xl p-6 border border-white/10">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Follow Trend Flare</h4>
+            <div class="grid grid-cols-4 gap-3 text-center">
+              <a href="https://instagram.com" target="_blank" class="p-3 rounded-xl bg-white/5 hover:bg-pink-600/20 border border-white/5 hover:border-pink-500/40 text-slate-300 hover:text-pink-400 transition-all">
+                <i class="fab fa-instagram text-xl block mb-1"></i>
+                <span class="text-[10px] font-medium">Instagram</span>
+              </a>
+              <a href="https://facebook.com" target="_blank" class="p-3 rounded-xl bg-white/5 hover:bg-blue-600/20 border border-white/5 hover:border-blue-500/40 text-slate-300 hover:text-blue-400 transition-all">
+                <i class="fab fa-facebook-f text-xl block mb-1"></i>
+                <span class="text-[10px] font-medium">Facebook</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" class="p-3 rounded-xl bg-white/5 hover:bg-cyan-600/20 border border-white/5 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all">
+                <i class="fab fa-linkedin-in text-xl block mb-1"></i>
+                <span class="text-[10px] font-medium">LinkedIn</span>
+              </a>
+              <a href="https://tiktok.com" target="_blank" class="p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/40 text-slate-300 hover:text-white transition-all">
+                <i class="fab fa-tiktok text-xl block mb-1"></i>
+                <span class="text-[10px] font-medium">TikTok</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-16 pb-12 bg-[#060a12] border-t border-white/10 relative z-10 text-sm">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold text-xl">
+              <i class="fas fa-fire-flame-curved"></i>
+            </div>
+            <span class="text-2xl font-black font-heading text-white">TREND<span class="text-gradient">FLARE</span></span>
+          </a>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Trend Flare is a premier boutique agency specializing in high-performance WordPress web development, speed optimization, and viral social media marketing for forward-thinking brands worldwide.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-pink-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-cyan-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/94771234567" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-emerald-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Navigation</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="index.html" class="hover:text-pink-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-pink-400 transition-colors">About Trend Flare</a></li>
+            <li><a href="services.html" class="hover:text-pink-400 transition-colors">Our Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-pink-400 transition-colors">Case Studies &amp; Work</a></li>
+            <li><a href="pricing.html" class="hover:text-pink-400 transition-colors">Pricing &amp; Packages</a></li>
+            <li><a href="blog.html" class="hover:text-pink-400 transition-colors">Blog &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Our Services</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="services.html#wordpress" class="hover:text-blue-400 transition-colors">Custom WordPress Design</a></li>
+            <li><a href="services.html#woocommerce" class="hover:text-blue-400 transition-colors">WooCommerce E-Commerce</a></li>
+            <li><a href="services.html#speed" class="hover:text-blue-400 transition-colors">PageSpeed Optimization</a></li>
+            <li><a href="services.html#social-media" class="hover:text-pink-400 transition-colors">Social Media Management</a></li>
+            <li><a href="services.html#reels" class="hover:text-pink-400 transition-colors">Reels &amp; TikTok Strategy</a></li>
+            <li><a href="services.html#ads" class="hover:text-pink-400 transition-colors">Meta Ads &amp; Paid Growth</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Get In Touch</h4>
+          <ul class="space-y-3 text-xs text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-envelope text-pink-400 mt-0.5"></i>
+              <a href="mailto:hello@trendflare.agency" class="hover:text-white transition-colors">hello@trendflare.agency</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fab fa-whatsapp text-emerald-400 mt-0.5"></i>
+              <a href="https://wa.me/94771234567" target="_blank" class="hover:text-white transition-colors">+94 77 123 4567</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-location-dot text-purple-400 mt-0.5"></i>
+              <span>Colombo, Sri Lanka &amp; Worldwide Remote</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div>
+          &copy; <span class="current-year">2026</span> <span class="text-white font-semibold">Trend Flare</span>. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/94771234567?text=Hello%20Trend%20Flare,%20I'd%20like%20to%20send%20a%20message" target="_blank" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl shadow-emerald-500/30 hover:scale-110 transition-transform" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center text-base shadow-xl backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Pre-select service plan from URL parameter if available (e.g. ?plan=wp-growth)
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const plan = urlParams.get('plan');
+      const serviceSelect = document.getElementById('form-service');
+      if (plan && serviceSelect) {
+        if (plan.startsWith('wp')) {
+          serviceSelect.value = plan === 'wp-growth' ? 'WooCommerce E-Commerce Store' : 'Custom WordPress Development';
+        } else if (plan.startsWith('smm')) {
+          serviceSelect.value = plan === 'smm-viral' ? 'Reels and TikTok Video Strategy' : 'Social Media Management';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

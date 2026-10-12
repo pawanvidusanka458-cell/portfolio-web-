@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Trend Flare - WordPress Development & Social Media Growth</title>
+  <meta name="description" content="Explore Trend Flare's full suite of high-impact services: Custom WordPress Development, WooCommerce, Speed Optimization, and Social Media Management.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#ff3366',
+              purple: '#7928ca',
+              cyan: '#00f2fe',
+              dark: '#080c14',
+              surface: '#0f1626',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-mesh text-slate-100 min-h-screen selection:bg-pink-500 selection:text-white">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+  <div class="fixed bottom-20 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 header-scrolled">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#ff3366] via-[#ff7a00] to-[#7928ca] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-pink-500/30 group-hover:scale-105 transition-transform">
+          <i class="fas fa-fire-flame-curved"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black font-heading tracking-tight text-white flex items-center gap-1">
+            TREND<span class="text-gradient">FLARE</span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Web &amp; Social Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Home</a>
+        <a href="about.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">About Us</a>
+        <a href="services.html" class="text-white font-semibold transition-colors flex items-center gap-1.5 border-b-2 border-[#ff3366] pb-1">Services</a>
+        <a href="portfolio.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Portfolio</a>
+        <a href="pricing.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Pricing</a>
+        <a href="blog.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Insights</a>
+        <a href="contact.html" class="hover:text-white transition-colors flex items-center gap-1.5 pb-1">Contact</a>
+      </div>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white text-sm font-semibold shadow-md">
+          <span>Start a Project</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-200 hover:text-white" aria-label="Toggle Navigation">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="mobile-menu" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-[#0d1322] border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold">
+            <i class="fas fa-fire-flame-curved"></i>
+          </div>
+          <span class="text-xl font-black font-heading tracking-tight text-white">TREND<span class="text-gradient">FLARE</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-4 mt-6 text-base font-medium">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Home</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="about.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>About Us</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="services.html" class="px-4 py-2.5 rounded-xl bg-white/10 text-white flex items-center justify-between">
+          <span>Services</span><i class="fas fa-chevron-right text-xs text-[#ff3366]"></i>
+        </a>
+        <a href="portfolio.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Portfolio</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="pricing.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Pricing</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="blog.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Insights</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+        <a href="contact.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 flex items-center justify-between">
+          <span>Contact</span><i class="fas fa-chevron-right text-xs text-slate-500"></i>
+        </a>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/10">
+      <a href="contact.html" class="w-full py-3 rounded-xl btn-gradient text-white text-center font-bold block mb-4">Book Strategy Call</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-16 relative z-10 text-center">
+    <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge-flare text-xs font-bold mb-4">
+        <i class="fas fa-layer-group"></i> Comprehensive Agency Solutions
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading text-white">
+        Crafted for <span class="text-gradient">Performance</span>. Optimized for <span class="text-gradient-purple">Virality</span>.
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg mt-5 max-w-2xl mx-auto leading-relaxed">
+        Everything your brand requires to command absolute authority online—from responsive custom WordPress codebases to audience-grabbing social storytelling.
+      </p>
+
+      <!-- Jump buttons -->
+      <div class="flex items-center justify-center gap-4 mt-8">
+        <a href="#wordpress" class="px-5 py-2.5 rounded-full bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-300 text-xs font-bold flex items-center gap-2 transition-all">
+          <i class="fab fa-wordpress"></i> Jump to WordPress Services
+        </a>
+        <a href="#social-media" class="px-5 py-2.5 rounded-full bg-pink-600/20 hover:bg-pink-600/30 border border-pink-500/30 text-pink-300 text-xs font-bold flex items-center gap-2 transition-all">
+          <i class="fas fa-hashtag"></i> Jump to Social Media Management
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: WORDPRESS WEB DEVELOPMENT -->
+  <section id="wordpress" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-6" data-aos="fade-up">
+        <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl border border-blue-500/30">
+          <i class="fab fa-wordpress"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Web Development Division</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            High-Performance WordPress Engineering
+          </h2>
+        </div>
+      </div>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl mb-12">
+        We specialize in building modern, scalable WordPress websites that load in under 1 second, rank on Google, and convert curious browsers into loyal clients.
+      </p>
+
+      <!-- 4 WordPress Service Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-5 border border-blue-500/20">
+            <i class="fas fa-pen-nib"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Custom WordPress Themes &amp; UX</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Bespoke design built around your brand identity. Clean layouts, mobile responsiveness, and intuitive Gutenberg or Elementor Pro customization you can easily edit yourself.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-blue-400"></i> No bloated pre-made templates</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-blue-400"></i> Mobile-first interactive UI</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-blue-400"></i> SEO semantic HTML5 structure</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="200" id="woocommerce">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-5 border border-purple-500/20">
+            <i class="fas fa-cart-shopping"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">WooCommerce E-Commerce Stores</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Full-featured online shopping experience built for maximum conversions. Integrated payment gateways (Stripe, PayPal, PayHere), automated invoices, shipping &amp; inventory tracking.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Streamlined 1-click checkout</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Multi-currency &amp; multilingual</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Abandoned cart recovery funnels</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="300" id="speed">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-5 border border-emerald-500/20">
+            <i class="fas fa-gauge-high"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">PageSpeed &amp; Core Web Vitals</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Is your existing WordPress site slow? We turbocharge it to achieve 90+ scores on Google PageSpeed Insights through WebP conversion, Redis caching, script deferral and CDN delivery.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i> Sub-second LCP &amp; 0 CLS score</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i> Cloudflare CDN &amp; SSL tuning</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i> Database clean-up &amp; query fix</li>
+          </ul>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-xl mb-5 border border-yellow-500/20">
+            <i class="fas fa-shield-virus"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">WordPress Security &amp; Care Plans</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Keep your business protected 24/7. Automated offsite backups, firewall installation, login bruteforce shielding, malware scans, and safe monthly plugin &amp; core updates.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> 24/7 Uptime monitoring</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Daily off-site cloud backups</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Emergency hack recovery guarantee</li>
+          </ul>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-5 border border-pink-500/20">
+            <i class="fas fa-filter-circle-dollar"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Landing Pages &amp; Sales Funnels</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Laser-targeted single-page sales funnels engineered specifically for paid Google &amp; Meta ad campaigns. High visual hierarchy designed solely to maximize inquiry conversion.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400"></i> Direct WhatsApp &amp; CRM integration</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400"></i> A/B split-testing ready</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400"></i> Persuasive copywriting assistance</li>
+          </ul>
+        </div>
+
+        <!-- Card 6: Custom Integrations -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-5 border border-cyan-500/20">
+            <i class="fas fa-plug-circle-bolt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Custom APIs &amp; Automations</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Connect WordPress directly to your favorite tools: HubSpot, Mailchimp, Zapier, Google Sheets, WhatsApp business API, and custom REST API endpoints.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Automated lead notifications</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Webhooks &amp; third-party data feeds</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Custom user portal features</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: SOCIAL MEDIA MANAGEMENT -->
+  <section id="social-media" class="py-20 bg-slate-900/40 border-y border-white/5 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      
+      <!-- Section Header -->
+      <div class="flex items-center gap-3 mb-6" data-aos="fade-up">
+        <div class="w-12 h-12 rounded-xl bg-pink-600/20 text-pink-400 flex items-center justify-center text-2xl border border-pink-500/30">
+          <i class="fas fa-hashtag"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold text-pink-400 uppercase tracking-widest">Growth &amp; Marketing Division</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            Viral Social Media Management
+          </h2>
+        </div>
+      </div>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl mb-12">
+        From scroll-stopping visual design and viral video storytelling to precision paid ad funnels, we turn your social feeds into high-performing revenue channels.
+      </p>
+
+      <!-- 4 Social Media Service Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-5 border border-pink-500/20">
+            <i class="fas fa-calendar-days"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Content Strategy &amp; Planning</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            We curate a 30-day content calendar aligned with your product launches, industry trends, and user pain points. Consistent, brand-aligned posting schedule.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400"></i> High-converting caption copywriting</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400"></i> Hashtag &amp; SEO keyword strategy</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-pink-400"></i> Monthly approval workflows</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="200" id="reels">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-5 border border-purple-500/20">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Reels, TikToks &amp; YouTube Shorts</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Short-form video is the #1 organic reach vehicle in 2026. We script, edit, color-grade, and add dynamic subtitles and sound design that capture 80%+ viewer retention.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Viral 3-second hook structure</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Fast-paced Alex Hormozi style captions</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Trending audio matching</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="300" id="ads">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-5 border border-blue-500/20">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Meta Ads &amp; TikTok Paid Traffic</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Turn \$1 of ad spend into \$3 - \$6 in sales. We build full-funnel paid campaigns with custom audience targeting, pixel configuration, A/B creative testing, and retargeting.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-blue-400"></i> Pixel &amp; Conversions API setup</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-blue-400"></i> Retargeting cart abandoners</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-blue-400"></i> Weekly ROAS tracking</li>
+          </ul>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-5 border border-emerald-500/20">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Community Engagement &amp; DMs</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Never let a lead go cold in your Instagram or Facebook inbox. We monitor your comments, reply to questions promptly, and route serious buyers to your sales team or WhatsApp.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i> Daily comment moderation</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i> Warm direct message nurturing</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i> Brand reputation defense</li>
+          </ul>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl mb-5 border border-orange-500/20">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Aesthetic Carousel &amp; Brand Art</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Custom graphics, educational infographics, and cohesive brand templates crafted in Figma &amp; Photoshop that elevate your brand from amateur to luxury authority.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-orange-400"></i> Cohesive Instagram feed aesthetic</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-orange-400"></i> High-save carousel infographics</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-orange-400"></i> Story highlight covers &amp; banners</li>
+          </ul>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glow-card rounded-2xl p-7 relative" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-5 border border-cyan-500/20">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">In-Depth Monthly Analytics</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Transparent reporting delivered every 30 days. We review follower growth, engagement rates, click-throughs, cost per lead, and recommend strategic tweaks for next month.
+          </p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Plain-English monthly PDF report</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> 30-min strategy review call</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Next sprint content roadmap</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 relative z-10 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white mb-4">
+        Ready to Put Your Digital Growth on Autopilot?
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
+        Check out our transparent packages or request a custom proposal tailored to your exact scope.
+      </p>
+      <div class="flex items-center justify-center gap-4">
+        <a href="pricing.html" class="px-8 py-4 rounded-xl btn-gradient text-white font-bold text-sm shadow-xl">
+          View Pricing Plans
+        </a>
+        <a href="contact.html" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-colors">
+          Request Custom Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-16 pb-12 bg-[#060a12] border-t border-white/10 relative z-10 text-sm">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#ff3366] to-[#7928ca] flex items-center justify-center text-white font-bold text-xl">
+              <i class="fas fa-fire-flame-curved"></i>
+            </div>
+            <span class="text-2xl font-black font-heading text-white">TREND<span class="text-gradient">FLARE</span></span>
+          </a>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Trend Flare is a premier boutique agency specializing in high-performance WordPress web development, speed optimization, and viral social media marketing for forward-thinking brands worldwide.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-pink-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-cyan-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/94771234567" target="_blank" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-emerald-600 hover:text-white border border-white/10 flex items-center justify-center text-slate-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Navigation</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="index.html" class="hover:text-pink-400 transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-pink-400 transition-colors">About Trend Flare</a></li>
+            <li><a href="services.html" class="hover:text-pink-400 transition-colors">Our Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-pink-400 transition-colors">Case Studies &amp; Work</a></li>
+            <li><a href="pricing.html" class="hover:text-pink-400 transition-colors">Pricing &amp; Packages</a></li>
+            <li><a href="blog.html" class="hover:text-pink-400 transition-colors">Blog &amp; Insights</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Our Services</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400 font-medium">
+            <li><a href="services.html#wordpress" class="hover:text-blue-400 transition-colors">Custom WordPress Design</a></li>
+            <li><a href="services.html#woocommerce" class="hover:text-blue-400 transition-colors">WooCommerce E-Commerce</a></li>
+            <li><a href="services.html#speed" class="hover:text-blue-400 transition-colors">PageSpeed Optimization</a></li>
+            <li><a href="services.html#social-media" class="hover:text-pink-400 transition-colors">Social Media Management</a></li>
+            <li><a href="services.html#reels" class="hover:text-pink-400 transition-colors">Reels &amp; TikTok Strategy</a></li>
+            <li><a href="services.html#ads" class="hover:text-pink-400 transition-colors">Meta Ads &amp; Paid Growth</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4 uppercase tracking-wider text-xs">Get In Touch</h4>
+          <ul class="space-y-3 text-xs text-slate-400">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-envelope text-pink-400 mt-0.5"></i>
+              <a href="mailto:hello@trendflare.agency" class="hover:text-white transition-colors">hello@trendflare.agency</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fab fa-whatsapp text-emerald-400 mt-0.5"></i>
+              <a href="https://wa.me/94771234567" target="_blank" class="hover:text-white transition-colors">+94 77 123 4567</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-location-dot text-purple-400 mt-0.5"></i>
+              <span>Colombo, Sri Lanka &amp; Worldwide Remote</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div>
+          &copy; <span class="current-year">2026</span> <span class="text-white font-semibold">Trend Flare</span>. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/94771234567?text=Hello%20Trend%20Flare,%20I'm%20interested%20in%20your%20services" target="_blank" class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl shadow-emerald-500/30 hover:scale-110 transition-transform" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center text-base shadow-xl backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
